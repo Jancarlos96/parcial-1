@@ -3,7 +3,7 @@ unsigned int Cantidad_Materias()
 {
     char *kk;
     fstream texto;
-    texto.open("cursos.txt",ios_base::in | ios_base::binary);
+    texto.open("prueba.csv",ios_base::in | ios_base::binary);
     unsigned int cantidadL = 0;
 
     if(texto.is_open()){
@@ -16,7 +16,58 @@ unsigned int Cantidad_Materias()
     return cantidadL;
 }
 
+void materias_codigo()
+{
+    char *kk, **hj;
+    fstream texto;
+    int u=0;
+    texto.open("prueba.csv",ios_base::in | ios_base::binary);
+    if(texto.is_open()){
+        while (!texto.eof()){
+            kk = Leer_linea(texto);
+            hj = separador(kk,';');
+            if(u==0){
+                cout<<" ______________________________________________"<<endl;
+                cout<<"|      CODIGO    |            "<<hj[1]<<"          |"<<endl;
+                cout<<"|________________|_____________________________|"<<endl;
+                u=u+1;
+            }
+            else{
+                cout<<"|"<<u<<". [ "<<hj[0]<<" ]=  "<<hj[1]<<endl;
+                u=u+1;
+            }
 
+
+
+            delete []kk;
+        }
+        cout<<"|___________________________________________|"<<endl;
+    }
+}
+
+
+int verificador(char *codigo)
+{
+    char *kk, **hj;
+    int i=1;
+    fstream texto;
+    texto.open("prueba.csv",ios_base::in | ios_base::binary);
+    if(texto.is_open()){
+        while (!texto.eof()){
+            kk = Leer_linea(texto);
+            hj = separador(kk,';');
+            if(codigo == hj[0]){
+                cout<<"----------Codigo Verificado------"<<endl;
+                cout<<endl;
+                cout<<"Materia Registrada: "<<"["<<hj[1]<<"]"<<"Creditos: "<<"["<<hj[2]<<"]"<<endl;
+                cout<<" "<<endl;
+                return i;
+
+            }
+        }
+    }
+    return 3;
+}
 
 char *Leer_linea(fstream &k)
 {

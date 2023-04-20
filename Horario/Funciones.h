@@ -17,6 +17,8 @@ char * Eliminar_Posicion_de_Caracter(char *i, int posicion);//Elimina caracteres
 char * Eliminar_Caracter(char *i, char caracter);//Elimina Posicion
 char ** separador(char *i, char caracter);
 int Buscador(char *i, int posicion,char elemento);
+void materias_codigo();
+int verificador(char *codigo);
 #endif // FUNCIONES_H
 
 
