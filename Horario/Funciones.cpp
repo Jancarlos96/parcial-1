@@ -61,6 +61,7 @@ int verificador(char *codigo)
                 cout<<endl;
                 cout<<"Materia Registrada: "<<"["<<hj[1]<<"]"<<"Creditos: "<<"["<<hj[2]<<"]"<<endl;
                 cout<<" "<<endl;
+                delete []hj;
                 return i;
 
             }
@@ -208,6 +209,7 @@ int Buscador(char *i, int posicion, char elemento)
         }
     }
 }
+
 void mostrarMenu(){
 
         cout<<"**bienvenido al area de matriculas***"<<endl;
@@ -221,7 +223,7 @@ void mostrarMenu(){
 }
 
 void matricular(){
-        const int MAX_MATERIAS = 100;
+        const int MAX_MATERIAS = 80;
         char nombres[MAX_MATERIAS][50]; // Arreglo de arreglos de caracteres para almacenar los nombres de las materias
         int codigos[MAX_MATERIAS]; // Arreglo de enteros para almacenar los códigos de las materias
         int creditos[MAX_MATERIAS]; // Arreglo de enteros para almacenar los créditos de las materias
@@ -291,7 +293,6 @@ void matricular(){
 }
 
 int horario(){
-
     const int NUM_DIAS = 5;
     const int NUM_HORAS = 16;
     const int MAX_LONGITUD_MATERIA = 20;
@@ -303,15 +304,18 @@ int horario(){
         char hora[20];
         int opcion=0;
         do {
-            cout<<"**bienvenido al area de horarios***"<<endl;
+            cout<<"  ________________________________________________"<<endl;
+            cout<<" |                   ***horarios***               |"<<endl;
+            cout<<" |________________________________________________|"<<endl;
             cout << "Seleccione una opcion:" << endl;
             cout << "1. registrar horario" << endl;
             cout << "2. salir" << endl;
             cin >> opcion;
+            cin.ignore();
             if(opcion!=2){
                 cout << "Ingrese el codigo  de la materia: ";
                 cin.getline(materia, MAX_LONGITUD_MATERIA);
-
+                cin.ignore();
                 cout << "Ingrese el día de la semana (Lunes, Martes, Miercoles, Jueves, Viernes): ";
                 cin.getline(dia, 20);
                 cout << "Ingrese la hora (ej. 6-7, 7-8): ";
@@ -387,7 +391,10 @@ int horario(){
                 } while (opcion != 2);
 
                 int si_no;
-                cout<<"desea ingresar horas de estudio independiente en los espacios vacios[1.si 2.no] : ";cin>>si_no;
+                cout<<"  ___________________________________________________________________________________"<<endl;
+                cout<<" | desea ingresar horas de estudio independiente en los espacios vacios[1.si 2.no] : |"<<endl;
+                cout<<" |___________________________________________________________________________________|"<<endl;
+                cin>>si_no;
                 cin.ignore();
                 if (si_no==1){
                    for (int i = 0; i < NUM_DIAS; i++) {
