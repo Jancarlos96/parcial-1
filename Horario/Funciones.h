@@ -19,6 +19,8 @@ char ** separador(char *i, char caracter);
 int Buscador(char *i, int posicion,char elemento);
 void materias_codigo();
 int verificador(char *codigo);
+int verificador2(char *codigo, char *h2);
+int horario(  );
 #endif // FUNCIONES_H
 
 
